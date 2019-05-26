@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="Styles/Schedule.css" rel="stylesheet" />
+    <link href="Styles/jquery-ui.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.1.1.js"></script>
+    <script src="Scripts/jquery-ui.js"></script>
+    <script src="Scripts/moment.min.js"></script>
+    <script src="Scripts/jqSchedule.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var startDate = new moment('2014-10-13');
+            var endDate = new moment('2014-10-17');
+            var scheduleItems = GetScheduleItems();
+            Schedule().create($("#divSchedule"), startDate, endDate, scheduleItems, saveEvent);
+        });
+
+        function saveEvent(si) {
+            //alert('event saving:' + si.title);
+        }
+
+        function GetScheduleItems(startDate, endDate, scheduleItems) {
+            var si = {
+                routes: [
+                    { name: 'route 1', routeID: 'f1a96e26-6e31-4fd2-9343-014fb8dde02e', color: '9FC6E7' },
+                    { name: 'route 2', routeID: '6e907a53-0abd-4643-9f57-9c283d057f5b', color: 'A23CC4' },
+                    { name: 'route 3', routeID: 'a3d801e9-a138-455a-9f49-ad58a7ea6875', color: '49BCA0' },
+                ],
+                items: [
+                    {
+                        itemID: '36804a6d-2519-4aa9-a595-1482e8f1e239',
+                        routeID: 'f1a96e26-6e31-4fd2-9343-014fb8dde02e',
+                        itemType: 'job',
+                        startTime: '2014-10-13 07:30',
+                        duration: 2,
+                        title: 'Order 1',
+                        description: '2112 fake st'
+                    },
+                    {
+                        itemID: '40ae17df-8e7f-4c3b-b7ac-e8599baef8c0',
+                        routeID: 'a3d801e9-a138-455a-9f49-ad58a7ea6875',
+                        itemType: 'job',
+                        startTime: '2014-10-13 13:00',
+                        duration: 2,
+                        title: 'Order 2',
+                        description: '765 notreal st'
+                    },
+                    {
+                        itemID: '36804a6d-2519-4aa9-a595-1482e8f1e239',
+                        routeID: '6e907a53-0abd-4643-9f57-9c283d057f5b',
+                        itemType: 'job',
+                        startTime: '2014-10-14 09:00',
+                        duration: 0.5,
+                        title: 'Order 3',
+                        description: '2112 fake st'
+                    },
+                    {
+                        itemID: '36804a6d-2519-4aa9-a595-1482e8f1e239',
+                        routeID: 'f1a96e26-6e31-4fd2-9343-014fb8dde02e',
+                        itemType: 'job',
+                        startTime: '2014-10-14 11:00',
+                        duration: 6,
+                        title: 'Order 4',
+                        description: '2112 fake st'
+                    },
+                    {
+                        itemID: '40ae17df-8e7f-4c3b-b7ac-e8599baef8c0',
+                        routeID: 'a3d801e9-a138-455a-9f49-ad58a7ea6875',
+                        itemType: 'job',
+                        startTime: '2014-10-16 09:00',
+                        duration: 4,
+                        title: 'Order 5',
+                        description: '765 notreal st'
+                    },
+                    {
+                        itemID: '40ae17df-8e7f-4c3b-b7ac-e8599baef8c0',
+                        routeID: '6e907a53-0abd-4643-9f57-9c283d057f5b',
+                        itemType: 'job',
+                        startTime: '2014-10-16 12:00',
+                        duration: 4,
+                        title: 'Order 6',
+                        description: '765 notreal st'
+                    },
+                    {
+                        itemID: '40ae17df-8e7f-4c3b-b7ac-e8599baef8c0',
+                        routeID: 'a3d801e9-a138-455a-9f49-ad58a7ea6875',
+                        itemType: 'job',
+                        startTime: '2014-10-17 08:30',
+                        duration: 2.5,
+                        title: 'Order 7',
+                        description: '765 notreal st'
+                    }
+                ]
+            };
+            return si;
+        }
+
+    </script>
+    <title>Schedule</title>
+</head>
+<body>
+    <div id="divSchedule">
+    </div>
+</body>
+</html>
